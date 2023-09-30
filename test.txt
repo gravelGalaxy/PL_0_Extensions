@@ -1,0 +1,57 @@
+var i,j,k;
+procedure test1;
+begin
+    /=* 求1-100所有的质数 */
+    write(2);
+    /* 测试for、后置++ */
+    for(i:=3;i<=100;i++)
+    begin
+        k:=0;
+        /* 测试for、前置++ */
+        for(j:=2;j*j<=i;++j)
+        begin
+            /* 测试取余 */
+            if i%j=0
+            then
+                k:=1;
+        end;
+        /* 测试取反 */
+        if !k=1
+        then
+            write(i);
+    end
+end;
+
+
+procedure test2;
+var score;
+begin
+    /* 输出成绩等级 */
+    read(score);
+    if score>=90
+    then
+        /* 输出字符(ASCII表示) */
+        writeCh(65);
+    else
+    begin
+        if score >=80
+        then
+                writeCh(66);
+        else
+        begin
+            if score>=70
+            then
+                writeCh(67);
+            else
+                writeCh(68);
+        end
+    end
+end;
+
+begin
+    /* 测试if else、writeCh -- 输出成绩等级 */
+    call test2;
+    writeCh(10);
+    /* 测试for、前置后置++、取余、取反 -- 求1-100所有的质数 */
+    call test1;
+end.
